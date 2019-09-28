@@ -10,8 +10,8 @@ class Main {
     public void testAdd() {
         assertEquals(42, 42); //build successful
     }
-
-    public void testAdd() {
-        assertEquals(42, 41); //build unsuccessful
+    @Test
+    public void testAdd2() {
+        assertEquals(42, 42); //build unsuccessful
     }
 }
