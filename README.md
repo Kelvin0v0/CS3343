@@ -37,5 +37,6 @@ All document please put in oneDrive!!!
     $ gradle clean test
 
     
-
-
+# After adding dependencies remember to
+    gradle build
+    
