@@ -1,7 +1,7 @@
 
 package CS3343;
 
-import CS3343.game.Game;
+import CS3343.game.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -19,6 +19,11 @@ public class Main {
         while (isGameEnd == false);
 
         game.result();
-*/
+
+*/      
+        SicBo sicbo = new SicBo();
+        sicbo.intro();
+        sicbo.gamePlay();
+        sicbo.result();
     }
 }

@@ -14,7 +14,10 @@ All document please put in oneDrive!!!
 - gradle 4.10 ( if dont have, please download it )
 - Junit5
 
-# For your java file: 
+
+
+# For your java file:
+## Please git pull once before you start!!
 1. ### Please use three function in interface Game.java 
    -    intro() : display table or game description
    -    gamePlay() : your game function
