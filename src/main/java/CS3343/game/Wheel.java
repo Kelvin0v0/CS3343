@@ -12,18 +12,18 @@ public class Wheel{
 
   public void spin(){
     this.num = rand.nextInt(37);
-    this.par = calcParity();
+    this.par = calcParity(this.num);
   }
 
-  private int calcParity(){
-    return (this.num==0)? -1: this.num%2;
+  public int calcParity(int num){ //this used to be private but don't know how to test
+    return (num==0)? -1: num%2; //even is 0, odd is 1, 0 returns -1
   }
 
   public int getNum(){
     return this.num;
   }
 
-  public boolean getPar(){
+  public int getPar(){
     return this.par;
   }
 }
