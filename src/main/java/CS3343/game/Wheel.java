@@ -1,3 +1,4 @@
+package CS3343.game;
 import java.util.Random;
 
 public class Wheel{
