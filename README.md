@@ -21,7 +21,6 @@ All document please put in oneDrive!!!
 1. ### Please use three function in interface Game.java 
    -    intro() : display table or game description
    -    gamePlay() : your game function
-   -    result(): calculation and display result
 
 2. ### Put you java/folder file to Game folder , then type this after you finish the profile 
     <terminal>
