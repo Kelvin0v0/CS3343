@@ -13,7 +13,7 @@ class TestSicBo {
         int[] dices = { 6, 4, 6 };
         String choice = "13";
         SicBo sicbo = new SicBo();
-        assertEquals(true, sicbo.checkNumber(choice, dices));
+        assertEquals(false, sicbo.checkNumber(choice, dices));
     }
     
     @Test

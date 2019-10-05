@@ -8,14 +8,14 @@ public class SicBoInput {
     private int cost;
 
     public static SicBoInput getInput() {
-        try (Scanner choice = new Scanner(System.in); Scanner money = new Scanner(System.in)) {
-            System.out.print("Your Choice e.g Big, 1&2: ");
-            String select = choice.nextLine();
-            System.out.print("Money for gamble: ");
-            int cost = money.nextInt();
+        Scanner choice = ScannerSingleton.getScanner();
 
-            return new SicBoInput(select, cost);
-        }
+        System.out.print("Your Choice e.g Big, 1&2: ");
+        String select = choice.nextLine();
+        System.out.print("Money for gamble: ");
+        int cost = choice.nextInt();
+
+        return new SicBoInput(select, cost);
 
     }
 

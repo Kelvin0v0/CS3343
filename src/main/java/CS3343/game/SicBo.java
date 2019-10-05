@@ -37,18 +37,20 @@ public class SicBo implements Game {
 
         // Give user input
         @Override
-        public boolean gamePlay() {
+        public void gamePlay() {
                 SicBoInput input = SicBoInput.getInput();
                 this.choice = input.getChoice();
                 this.money = input.getMoney();
-                return false;
+                
+                //check result
+                this.result();
         }
 
         // Check the result and return it
-        @Override
+     
         public void result() {
-                // int[] pattern = this.shakeDice();
-                int[] pattern = { 6, 6, 6 };
+                int[] pattern = this.shakeDice();
+                //int[] pattern = { 6, 6, 6 };
                 System.out.println("===Dices Open===");
                 System.out.println(" " + pattern[0] + " " + pattern[1] + " " + pattern[2] + " ");
                 if (checkSelect(choice)) {
