@@ -29,7 +29,10 @@ All document please put in oneDrive!!!
  
 3. ### How to complie: you need to call your game in main and then type this in
     <terminal>
-    java -cp .\build\libs\CS3343.jar CS3343.Main
+    windows:  java -jar .\build\libs\CS3343.jar  
+    
+    Linux:    java -jar ./build/libs/CS3343.jar
+
 
 # For test:
 
