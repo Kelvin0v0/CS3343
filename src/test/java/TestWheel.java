@@ -1,5 +1,5 @@
 
-import CS3343.game.Roulette;
+import CS3343.game.*;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -10,6 +10,7 @@ class TestWheel {
     public void testSpin() {
         Wheel wheel = new Wheel();
         boolean flag = true;
+        int num;
         for(int i = 0;i<100;i++){
           wheel.spin();
           num = wheel.getNum();
