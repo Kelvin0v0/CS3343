@@ -28,7 +28,6 @@ public class Main {
         SicBo sicbo = new SicBo();
         sicbo.intro();
         sicbo.gamePlay();
-        sicbo.result();
         break;
       }
 
