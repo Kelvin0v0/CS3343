@@ -5,7 +5,7 @@ public class Roulette implements Game{
     System.out.println("Intro run in Roulette");
   }
 
-  public boolean gamePlay(){
+  public void gamePlay(){
     Wheel wheel = new Wheel();
     System.out.println(wheel.getNum());
     System.out.println(wheel.getPar());
