@@ -1,5 +1,5 @@
 package CS3343;
-import java. Scanner;
+import java.util.Scanner;
 import CS3343.game.*;
 
 
