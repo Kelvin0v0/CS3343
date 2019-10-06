@@ -6,7 +6,7 @@ public class Roulette implements Game{
   }
 
   public void gamePlay(){
-    Wheel wheel = new Wheel();
+    Wheel wheel = Wheel.getWheel();
     System.out.println(wheel.getNum());
     System.out.println(wheel.getPar());
   }

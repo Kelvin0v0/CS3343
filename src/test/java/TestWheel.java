@@ -1,14 +1,20 @@
 
 import CS3343.game.*;
 import org.junit.jupiter.api.Test;
+import org.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class TestWheel {
     /** sample of unit test */
+    private Wheel wheel;
+
+    @Before
+    public void init(){
+      wheel = Wheel.getWheel();
+    }
 
     @Test
     public void testSpin() {
-        Wheel wheel = new Wheel();
         boolean flag = true;
         int num;
         for(int i = 0;i<100;i++){
@@ -24,27 +30,23 @@ class TestWheel {
 
     @Test
     public void testParityZero() {
-        Wheel wheel = new Wheel();
         assertEquals(-1,wheel.calcParity(0));
     }
 
     @Test
     public void testParityEven(){
-      Wheel wheel = new Wheel();
       assertEquals(0,wheel.calcParity(36));
     }
 
 
     @Test
     public void testParityOdd(){
-      Wheel wheel = new Wheel();
       assertEquals(1,wheel.calcParity(17));
     }
 
 
     @Test
     public void testParityMatch(){
-      Wheel wheel = new Wheel();
       if(wheel.getNum() == 0){
         assertEquals(-1,wheel.getPar());
       }else{

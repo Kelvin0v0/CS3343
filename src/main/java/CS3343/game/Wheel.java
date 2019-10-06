@@ -4,16 +4,25 @@ import java.util.Random;
 public class Wheel{
   private int num;
   private int par;
-  private Random rand;
+  private static Wheel singleWheel = null;
+  private final static Random rand = new Random();
 
-  public Wheel(){
-    this.rand = new Random();
+  private Wheel(){
     spin();
   }
 
   public void spin(){
     this.num = rand.nextInt(37);
     this.par = calcParity(this.num);
+  }
+
+  public static Wheel getWheel(){
+    if (singleWheel == null){
+        singleWheel = new Wheel();
+    }else{
+        singleWheel.spin();
+    }
+    return singleWheel;
   }
 
   public int calcParity(int num){ //this used to be private but don't know how to test
