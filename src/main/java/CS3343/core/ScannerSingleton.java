@@ -1,4 +1,4 @@
-package CS3343.game;
+package CS3343.core;
 
 import java.util.Scanner;
 

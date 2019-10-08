@@ -2,6 +2,7 @@ package CS3343.game;
 
 import java.*;
 import java.util.*;
+import CS3343.core.*;
 
 public class SicBoInput {
     private String select;

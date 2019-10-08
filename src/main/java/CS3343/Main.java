@@ -2,13 +2,13 @@ package CS3343;
 
 import java.util.Scanner;
 
+import CS3343.core.*;
 import CS3343.game.*;
+import CS3343.game.Roulette.*;
 
 public class Main {
   public static void main(String[] args) {
     Scanner scanner = ScannerSingleton.getScanner();
-    System.out.println("hello World");
-
     boolean whileFlag = true;
     while (whileFlag) {
       // clear last new line
@@ -21,7 +21,7 @@ public class Main {
         whileFlag = false;
         break;
       case '1':
-        Roulette roulette = new Roulette();
+        Roulette roulette = new Roulette(new PlayerStub());
         roulette.gamePlay();
         break;
       case '2':

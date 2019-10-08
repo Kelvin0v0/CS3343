@@ -1,4 +1,4 @@
-package CS3343.game;
+package CS3343.game.Roulette;
 import java.util.Random;
 
 public class Wheel{
@@ -19,8 +19,6 @@ public class Wheel{
   public static Wheel getWheel(){
     if (singleWheel == null){
         singleWheel = new Wheel();
-    }else{
-        singleWheel.spin();
     }
     return singleWheel;
   }

@@ -1,5 +1,6 @@
 
 import CS3343.game.*;
+import CS3343.game.Roulette.*;
 import org.junit.jupiter.api.Test;
 import org.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
