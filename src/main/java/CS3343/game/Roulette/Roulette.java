@@ -41,7 +41,7 @@ public class Roulette implements Game{
     int bet = getBetSize();
     //Now getting player choice of odd or even
     System.out.println("Pick a number from 0-36");
-    int num = scan.nextInt();          //need to create func that gets valid input in a loop
+    int num = scan.nextInt();          //need to create func that gets valid input in a loop - then dont have to throw exception
     try{
       bets.add(new SingleRouletteBet(player,bet,num));
     }catch(NotOnBoardException e){
