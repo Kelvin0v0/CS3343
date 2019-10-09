@@ -3,7 +3,7 @@ import CS3343.core.*;
 
 //import CS3343.game.NotOnBoardException;
 
-class SingleRouletteBet extends RouletteBet {
+public class SingleRouletteBet extends RouletteBet {
     private int bet, num;
     private Player player;
     public SingleRouletteBet(Player player, int bet, int num) throws NotOnBoardException{
@@ -16,11 +16,13 @@ class SingleRouletteBet extends RouletteBet {
         this.bet = bet;
     }
 
-    public void execBet(){
+    public boolean execBet(){
         if(Wheel.getWheel().getNum()==num){
             player.win(bet*34);
+            return true;
         }else{
             player.lose(bet);
+            return false;
         }
     }
 }

@@ -11,6 +11,13 @@ public class Wheel{
     spin();
   }
 
+  public void setWheel(int num){
+    if(num>=0 && num<=36){
+      this.num = num;
+      this.par = calcParity(num);
+    }
+  }
+
   public void spin(){
     this.num = rand.nextInt(37);
     this.par = calcParity(this.num);

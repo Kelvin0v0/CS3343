@@ -3,7 +3,7 @@ import CS3343.core.*;
 
 //import CS3343.game.NotOnBoardException;
 
-class ParityRouletteBet extends RouletteBet {
+public class ParityRouletteBet extends RouletteBet {
     private int bet, par;
     public ParityRouletteBet(Player player, int bet, int parity) throws NotOnBoardException{
         this.player = player;
@@ -15,11 +15,13 @@ class ParityRouletteBet extends RouletteBet {
         this.bet = bet;
     }
 
-    public void execBet(){
+    public boolean execBet(){
         if(Wheel.getWheel().getPar()==par){
             player.win(bet);
+            return true;
         }else{
             player.lose(bet);
+            return false;
         }
     }
 }
