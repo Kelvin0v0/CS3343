@@ -3,7 +3,7 @@ package CS3343;
 import java.util.Scanner;
 
 import CS3343.core.*;
-import CS3343.game.*;
+import CS3343.game.SicBo.*;
 import CS3343.game.Roulette.*;
 
 public class Main {

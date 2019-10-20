@@ -1,4 +1,4 @@
-package CS3343.game;
+package CS3343.game.SicBo;
 
 import java.*;
 import java.util.*;

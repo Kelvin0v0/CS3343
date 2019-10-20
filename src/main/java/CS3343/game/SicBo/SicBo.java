@@ -1,4 +1,6 @@
-package CS3343.game;
+package CS3343.game.SicBo;
+
+import CS3343.game.Game;
 
 public class SicBo implements Game {
         private String choice;

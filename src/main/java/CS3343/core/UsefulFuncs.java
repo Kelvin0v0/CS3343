@@ -2,8 +2,6 @@ package CS3343.core;
 
 import java.util.Scanner;
 
-import sun.security.util.Length;
-
 public class UsefulFuncs{
 
     public static char CharMenu(String values){     //function that makes sure user input is in the menu e.g. Menu = ('Q:quit,E:Exit') -> pass string "QE"
