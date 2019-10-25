@@ -12,6 +12,15 @@ public class Main {
     boolean whileFlag = true;
     while (whileFlag) {
       // clear last new line
+      System.out.println("    _    ___ ___  _   _  \n" +
+                       "   / \\  |_ _/ _ \\| \\ | | \n" +
+                        "  / _ \\  | | | | |  \\| | \n"+
+                        " / ___ \\ | | |_| | |\\  | \n" +
+                        "/_/   \\_\\___\\___/|_| \\_| ");
+      System.out.println("What's youe name?");
+      String pName = scanner.nextLine();
+      Player player = new Player(pName);
+
       System.out.println("Press 1 for Roulette, 2 for sicbo, 'q' to quit");
       String selection = scanner.nextLine();
       char firstChar = (selection.length() == 0) ? 'q' : selection.charAt(0);
