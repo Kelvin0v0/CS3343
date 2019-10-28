@@ -38,6 +38,8 @@ public class Main {
         sicbo.intro();
         sicbo.gamePlay();
         break;
+      case '3':
+    	  
       }
 
       if (firstChar != 'q') {
