@@ -1,10 +1,6 @@
 package CS3343.core;
 
-// public abstract class Player{  //Antony please change this to a concrete class when youre done with it
-//     public abstract int getBalance();
-//     public abstract void lose(int n);
-//     public abstract void win(int n);
-// }
+
 public class Player {
 	private String name;
 	private int balance;
@@ -55,6 +51,7 @@ public class Player {
 
 	public void win(int n) {
 		this.win = this.win+n;
+		System.out.println("Won " + n);
 	}
 
 	public int getLose() {
@@ -63,6 +60,7 @@ public class Player {
 
 	public void lose(int n) {
 		this.lose = this.lose + n;
+		System.out.println("Lost " + n);
 	}
 	
 }
