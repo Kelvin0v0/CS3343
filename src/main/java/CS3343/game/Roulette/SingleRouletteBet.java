@@ -25,4 +25,8 @@ public class SingleRouletteBet extends RouletteBet {
             return false;
         }
     }
+    
+    public void display() {
+    	System.out.println("You bet "+bet+ " on "+num);
+    }
 }

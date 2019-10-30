@@ -4,40 +4,45 @@ import CS3343.core.*;
 import CS3343.game.Game;
 
 public class Roulette implements Game{
-  Scanner scan = ScannerSingleton.getScanner();
+  Scanner scan = new Scanner(System.in);
   private Player player;
+  private int balance;
   public Roulette(Player player){
     this.player = player;
+    this.balance = player.getBalance();
   }
 
   public void intro(){
     System.out.println("Intro run in Roulette"); //tell em how much money they have
   }
 
-  private int getBetSize(){
-    System.out.println("Please enter how much you want to bet. You currently have " + player.getBalance());
+  public int getBetSize(){
+    System.out.println("Please enter how much you want to bet. You currently have " + player.getBalance() 
+     + " and " + (player.getBalance() - balance) + " of that has already been bet");
     int bet = scan.nextInt();
-    if(bet<=0 || bet>player.getBalance()){
+    if(bet<=0 || bet>balance){
       System.out.println("Invalid amount");
       return getBetSize();
     }
     return bet;
   }
 
-  public void betParity(Player player, ArrayList bets){
+  public void betParity(ArrayList <RouletteBet> bets){ //took out Player player param
     int bet = getBetSize();
-    //Now getting player choice of odd or even
-    System.out.println("1:Odd\n2:Even");
+    //Now getting player choice of odd or even                                                                                              
+    System.out.println("0:Even\n1:Odd");
     int num = scan.nextInt();          //need to create func that gets valid input in a loop
     try{
       bets.add(new ParityRouletteBet(player,bet,num));
+      balance -= bet;
     }catch(NotOnBoardException e){
       System.out.println("Failed! Please choose either 0 or 1");
+      betParity(bets);
     }
     System.out.println("Bet set! " + "$" + bet+ " with 2:1 payout");
   }
 
-  public void betSingle(Player player, ArrayList bets){
+  public void betSingle(ArrayList<RouletteBet> bets){
     int bet = getBetSize();
     //Now getting player choice of odd or even
     System.out.println("Pick a number from 0-36");
@@ -49,7 +54,26 @@ public class Roulette implements Game{
     }
     System.out.println("Bet set! " + "$" + bet + " with 35:1 payout");
   }
+  
+  public void execute(ArrayList<RouletteBet> bets) {
+	int j = 0;
+	while (bets.size() > j) {
+		bets.get(j).execBet();
+		j++;
+	}
+	bets.clear();
+	balance = player.getBalance();
+  }
  
+  public void display(ArrayList<RouletteBet> bets) {
+	int j = 0;
+	while (bets.size() > j) {
+		bets.get(j).display();
+		j++;
+	}
+  }
+ 
+  
   public void gamePlay(){     //could maybe make it static
     char option;
     ArrayList <RouletteBet> bets = new ArrayList<RouletteBet>();
@@ -57,6 +81,8 @@ public class Roulette implements Game{
       System.out.println("1:View Rules");
       System.out.println("2:Bet on a specific number");
       System.out.println("3:Bet on odds or evens");
+      System.out.println("4:Spin the wheel");
+      System.out.println("5:View bets");
       System.out.println("Q:Quit");
       option = scan.next().charAt(0);
       switch(option){
@@ -64,11 +90,17 @@ public class Roulette implements Game{
           System.out.println("RULES RULES RULEs");
           break;
         case '2': 
-          betSingle(player,bets);
+          betSingle(bets);
           break;
         case '3':
-          betParity(player, bets);
+          betParity(bets);
           break; 
+        case '4':
+            execute(bets);
+            break; 
+        case '5':
+        	display(bets);
+        	break;
         case 'Q':
           return;
       }

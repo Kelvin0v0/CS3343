@@ -4,4 +4,5 @@ import CS3343.core.Player;
 public abstract class RouletteBet{
   protected Player player;
   abstract public boolean execBet();
+  abstract public void display();
 }
