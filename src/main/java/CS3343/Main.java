@@ -5,9 +5,13 @@ import java.util.Scanner;
 import CS3343.core.*;
 import CS3343.game.SicBo.*;
 import CS3343.game.Roulette.*;
+import CS3343.game.BlackJack.*;
 
 public class Main {
-  public static void main(String[] args) {
+  /**
+ * @param args
+ */
+public static void main(String[] args) {
     Scanner scanner = ScannerSingleton.getScanner();
     boolean whileFlag = true;
     System.out.println("    _    ___ ___  _   _  \n" + "   / \\  |_ _/ _ \\| \\ | | \n"
@@ -15,13 +19,13 @@ public class Main {
       System.out.println("What's youe name?");
       String pName = scanner.nextLine();
       Player player = new Player(pName);
-      System.out.print("\033[H\033[2J");
+   //   System.out.print("\033[H\033[2J");
       System.out.flush();
     while (whileFlag) {
       // clear last new line
       
       System.out.println("Hello " + player.getName()+ '.'+" Welcome to AION Casino");
-      System.out.println("Press 1 for Roulette, 2 for sicbo, 'q' to quit");
+      System.out.println("Choose a game! \n" + "1 : Roulette \n" + "2 : Sicbo \n" + "3 : BlackJack \n" + "4 :  \n" + "q : Quit");
       String selection = scanner.nextLine();
       char firstChar = (selection.length() == 0) ? 'q' : selection.charAt(0);
 
@@ -30,7 +34,7 @@ public class Main {
         whileFlag = false;
         break;
       case '1':
-        Roulette roulette = new Roulette(new PlayerStub());
+        Roulette roulette = new Roulette(player);
         roulette.gamePlay();
         break;
       case '2':
@@ -38,6 +42,10 @@ public class Main {
         sicbo.intro();
         sicbo.gamePlay();
         break;
+      case '3':
+    	BlackJack blackjack = new BlackJack(player);
+    	blackjack.gameInit();
+    	break;
       }
 
       if (firstChar != 'q') {

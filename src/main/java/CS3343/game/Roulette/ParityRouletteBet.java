@@ -24,4 +24,9 @@ public class ParityRouletteBet extends RouletteBet {
             return false;
         }
     }
+    
+    public void display() {
+    	String parity = (par==1)?"Odd" :"Even";
+    	System.out.println("You bet "+bet+ " on "+parity);
+    }
 }
