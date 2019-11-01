@@ -1,10 +1,16 @@
 package CS3343.game.SicBo;
 
+import CS3343.core.*;
 import CS3343.game.Game;
 
 public class SicBo implements Game {
         private String choice;
         private int money;
+        private Player player;
+
+        public SicBo(Player player) {
+                this.player = player;
+        }
 
         // Display the Sic Bo board
         @Override
@@ -43,16 +49,16 @@ public class SicBo implements Game {
                 SicBoInput input = SicBoInput.getInput();
                 this.choice = input.getChoice();
                 this.money = input.getMoney();
-                
-                //check result
+
+                // check result
                 this.result();
         }
 
         // Check the result and return it
-     
+
         public void result() {
                 int[] pattern = this.shakeDice();
-                //int[] pattern = { 6, 6, 6 };
+                // int[] pattern = { 6, 6, 6 };
                 System.out.println("===Dices Open===");
                 System.out.println(" " + pattern[0] + " " + pattern[1] + " " + pattern[2] + " ");
                 if (checkSelect(choice)) {
@@ -103,6 +109,7 @@ public class SicBo implements Game {
                                 || choice.equals("One three dice 5") || choice.equals("One three dice 6")) {
                         result = result + result * 3;
                 }
+
                 return result;
         }
 
