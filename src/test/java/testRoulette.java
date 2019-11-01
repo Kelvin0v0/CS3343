@@ -67,7 +67,7 @@ public class testRoulette {
 	}
 
 	
-	@After
+	//@After
 	public void restoreStreams() {
 //	    System.setOut(originalOut);
 //	    System.setErr(originalErr);

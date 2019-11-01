@@ -1,8 +1,8 @@
-package blackJack;
+package CS3343.game.BlackJack;
 
 import java.util.Scanner;
 import java.util.ArrayList;
-
+import CS3343.core.*;
 public class BlackJack {
 	
 	private Player player;
