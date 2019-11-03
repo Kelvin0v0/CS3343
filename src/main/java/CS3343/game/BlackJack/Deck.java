@@ -34,7 +34,7 @@ public class Deck {
 		for (int i = 0;i<this.getCards().size();i++) {
 			System.out.print(this.getCards().get(i)+' ');
 		}
-		System.out.println(' ');
+		System.out.print('\n');
 	}
 	
 	public void printCpuCard() {
@@ -42,7 +42,7 @@ public class Deck {
 		for (int i = 1;i<this.getCards().size();i++) {
 			System.out.print(this.getCards().get(i)+' ');
 		}
-		System.out.println(' ');
+		System.out.print('\n');
 	}
 	
 	public void printAllCpuCard() {
@@ -50,7 +50,7 @@ public class Deck {
 		for (int i = 0;i<this.getCards().size();i++) {
 			System.out.print(this.getCards().get(i)+' ');
 		}
-		System.out.println(' ');
+		System.out.print('\n');
 	}
 	
 	public int calCardSum() {
