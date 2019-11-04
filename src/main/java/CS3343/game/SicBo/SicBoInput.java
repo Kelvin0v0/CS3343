@@ -8,8 +8,8 @@ public class SicBoInput {
     private String select;
     private int cost;
     private Player player;
-    Scanner menu = ScannerSingleton.getScanner();
-    Scanner again = ScannerSingleton.getScanner();
+    // Scanner menu = ScannerSingleton.getScanner();
+    // Scanner again = ScannerSingleton.getScanner();
     Scanner choice = ScannerSingleton.getScanner();
 
     public SicBoInput(Player player) {
@@ -37,9 +37,9 @@ public class SicBoInput {
     public void tryAgain() {
         String select;
         do {
-            select = again.nextLine();
+            select = choice.nextLine();
             if (checkSelect(select) == false) {
-                System.out.println("Please input a correct choice");
+                System.out.println("Please input a Y/N");
             }
         } while (checkSelect(select) == false);
         setChoice(select);
@@ -47,7 +47,7 @@ public class SicBoInput {
     public void menuOption() {
         String select;
         do {
-            select = menu.nextLine();
+            select = choice.nextLine();
             if (checkSelect(select) == false) {
                 System.out.println("Please input a correct choice");
             }
@@ -77,8 +77,11 @@ public class SicBoInput {
             if(cost > player.getBalance()){
                 System.out.println("You don't so much money!!");
                 System.out.print("Money for gamble: ");
+            }else if(cost <= 0){
+                System.out.println("No money no game!!");
+                System.out.print("Money for gamble: ");
             }
-        } while (cost > player.getBalance());
+        } while (cost > player.getBalance() || cost <= 0);
         setMoney(cost);
     }
 

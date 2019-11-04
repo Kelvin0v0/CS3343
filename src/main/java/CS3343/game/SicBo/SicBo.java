@@ -25,7 +25,7 @@ public class SicBo implements Game {
         public void intro() {
                 System.out.println(
                                 "------------------------------------------------------------------------------------------");
-                System.out.println("| Odd:       | Selection: \t\t\t\t\t\t\t\t |");
+                System.out.println("| Odds:       | Selection: \t\t\t\t\t\t\t\t |");
                 System.out.println(
                                 "| ---------------------------------------------------------------------------------------|");
                 System.out.println("| 1 wins 1   | Big(No. 4-10) , Small(No. 11 to 17), One dice\t\t\t\t |");
@@ -58,12 +58,14 @@ public class SicBo implements Game {
                 char menuChoice;
                 while (true){
                         System.out.println(
-                                        " _____  _        ____   ____\n/ ____ (_)\t|  _ \\ / __ \\\n| (___  _  ___  | |_) | |  | |\n\\___  \\| |/ __| |  _ <| |  | |\n____)  | | (__  | |_) | |__| |\n|_____/|_|\\___| |____/ \\____/ \n");
-                        System.out.println("Welcome to Sic Bo (Dice game)!! \n");
-                        System.out.println("S:Start\nQ: Exit");
+                                        "    _____  _        ____   ____\n   / ____ (_)\t   |  _ \\ / __ \\\n   | (___  _  ___  | |_) | |  | |\n   \\___  \\| |/ __| |  _ <| |  | |\n   ____)  | | (__  | |_) | |__| |\n   |_____/|_|\\___| |____/ \\____/ ");
+                        System.out.println("-=================================-");
+                        System.out.println("| Welcome to Sic Bo (Dice game)!! |");
+                        System.out.println("|---------------------------------|");
+                        System.out.println("| S: Start \t\t\t  |\n| Q: Exit \t\t\t  |");
+                        System.out.println("-=================================-");
                         input.menuOption();
                         menuChoice = input.getChoice().charAt(0);
-                        System.out.println(menuChoice);
                         switch (menuChoice) {
                         case 'S':
                                 do {
@@ -83,7 +85,7 @@ public class SicBo implements Game {
                                                 player.bet(this.money);
                                                 // check result
                                                 this.result();
-                                                System.out.println("PLay again (Y:yes, N: no) ? ");
+                                                System.out.println("\nPLay again (Y:yes, N: no) ? ");
                                                 input.tryAgain();
                                         }
                                 } while (input.getChoice().charAt(0) == 'Y');
@@ -98,7 +100,7 @@ public class SicBo implements Game {
         public void result() {
                 int[] pattern = this.shakeDice();
                 //int[] pattern = { 2, 2, 4 };
-                System.out.println("===Dices Open===");
+                System.out.println("\n===Dices Open===");
                 System.out.println(" " + pattern[0] + " " + pattern[1] + " " + pattern[2] + " ");
                 if (checkChoice(this.choice, pattern)) {
                         System.out.print("You won the bet!! ");
