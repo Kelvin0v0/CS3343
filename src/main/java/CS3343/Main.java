@@ -38,8 +38,7 @@ public static void main(String[] args) {
         roulette.gamePlay();
         break;
       case '2':
-        SicBo sicbo = new SicBo(new PlayerStub());
-        sicbo.intro();
+        SicBo sicbo = new SicBo(player);
         sicbo.gamePlay();
         break;
       case '3':

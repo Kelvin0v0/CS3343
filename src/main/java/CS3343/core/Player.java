@@ -35,6 +35,12 @@ public class Player {
 	public int getBalance() {
 		return balance;
 	}
+
+	//the player need bet 
+	public void bet(int betCost){
+		this.balance = this.balance - betCost;
+	}
+
 	public void setBalance(int n) {
 		this.balance = this.balance + n;
 	}
