@@ -1,3 +1,8 @@
 build/
 bin/
 .gradle
+gradlew
+gradlew.bat
+launch.json
+gradle-wrapper.jar
+gradle-wrapper.properties
