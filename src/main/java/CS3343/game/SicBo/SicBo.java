@@ -85,7 +85,7 @@ public class SicBo implements Game {
                                                 player.bet(this.money);
                                                 // check result
                                                 this.result();
-                                                System.out.println("\nPLay again (Y:yes, N: no) ? ");
+                      
                                                 input.tryAgain();
                                         }
                                 } while (input.getChoice().charAt(0) == 'Y');
@@ -114,7 +114,7 @@ public class SicBo implements Game {
         }
 
         // Calcuate how much user earned
-        private int reward(String choice, int result) {
+        public int reward(String choice, int result) {
                 if (choice.equals("9") || choice.equals("10") || choice.equals("11") || choice.equals("12")
                                 || choice.contains("&")) {
                         result = result + result * 6;
@@ -187,7 +187,7 @@ public class SicBo implements Game {
 
         public boolean checkPair(String choice, int[] dices) {
                 char left = choice.charAt(0);
-                char right = choice.charAt(1);
+                char right = choice.charAt(2);
                 int leftNum = Character.getNumericValue(left); 
                 int rightNum = Character.getNumericValue(right);
                 boolean leftcheck = false;
@@ -228,7 +228,7 @@ public class SicBo implements Game {
                                 count++;
                         }
                 }
-                if (count > 2) {
+                if (count >= 2) {
                         return true;
                 }
                 return false;
@@ -251,7 +251,7 @@ public class SicBo implements Game {
                         return (dices[0] == num || dices[1] == num || dices[2] == num);
                 } else if (choice.contains("One two")) {
                         int num = Character.getNumericValue(choice.charAt(13));
-                        return (dices[0] == dices[1] || dices[1] == dices[2]);
+                        return (dices[0] == dices[1] || dices[1] == dices[2]||dices[0]==dices[2]);
                 } else if (choice.contains("One three")) {
                         int num = Character.getNumericValue(choice.charAt(15));
                         return (dices[0] == num && dices[1] == num && dices[2] == num);

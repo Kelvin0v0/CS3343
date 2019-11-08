@@ -5,17 +5,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import org.junit.After;
+import org.junit.*;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import CS3343.game.BlackJack.Deck;
 
 public class DeckTest {
-	
+
 	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 	public Deck deck;
-	
+
 	@BeforeEach
 	public void init() {
 		System.setOut(new PrintStream(outContent));
@@ -23,8 +24,8 @@ public class DeckTest {
 		deck.getCards().add("2");
 		deck.getCards().add("J");
 	}
-	
-	@After
+
+	@AfterEach
 	public void finish() {
 		System.setOut(System.out);
 	}
