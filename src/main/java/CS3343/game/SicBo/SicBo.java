@@ -154,7 +154,7 @@ public class SicBo implements Game {
         }
 
         // check user selection whether correct
-        private boolean checkChoice(String choice, int[] dices) {
+        public boolean checkChoice(String choice, int[] dices) {
 
                 if (choice.length() <= 2 && !choice.contains("&")) {
                         this.checkNumber(choice, dices);
