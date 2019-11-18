@@ -423,11 +423,11 @@ class TestSicBo {
         assertEquals(true,sicbo.checkChoice(choice, dices));
     }
     
-    @Test
-    public void testGamePlay() {
-    	 Player player = new Player();
-         SicBo sicbo = new SicBo(player);
-        sicbo.gamePlay();
+    // @Test
+    // public void testGamePlay() {
+    // 	 Player player = new Player();
+    //      SicBo sicbo = new SicBo(player);
+    //     sicbo.gamePlay();
          
-    }
+    // }
 }

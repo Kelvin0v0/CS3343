@@ -5,6 +5,7 @@ import java.util.Scanner;
 import CS3343.core.*;
 import CS3343.game.SicBo.*;
 import CS3343.game.Roulette.*;
+import CS3343.game.SlotMachine.*;
 import CS3343.game.BlackJack.*;
 
 public class Main {
@@ -25,7 +26,7 @@ public static void main(String[] args) {
       // clear last new line
       
       System.out.println("Hello " + player.getName()+ '.'+" Welcome to AION Casino");
-      System.out.println("Choose a game! \n" + "1 : Roulette \n" + "2 : Sicbo \n" + "3 : BlackJack \n" + "4 :  \n" + "q : Quit");
+      System.out.println("Choose a game! \n" + "1 : Roulette \n" + "2 : Sicbo \n" + "3 : BlackJack \n" + "4 : Slot Machine  \n" + "q : Quit");
       String selection = scanner.nextLine();
       char firstChar = (selection.length() == 0) ? 'q' : selection.charAt(0);
 
@@ -44,7 +45,12 @@ public static void main(String[] args) {
       case '3':
     	BlackJack blackjack = new BlackJack(player);
     	blackjack.gameInit();
+      break;
+      case '4':
+    	SlotMachine slotMachine = new SlotMachine(player);
+    	slotMachine.gamePlay();
     	break;
+    	  
       }
 
       if (firstChar != 'q') {
