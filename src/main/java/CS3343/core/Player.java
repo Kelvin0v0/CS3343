@@ -6,13 +6,11 @@ public class Player {
 	private int balance;
 	private int win;
 	private int lose;
-	private double winRate;
-    
+	
     public Player(){
 		setName("Guest");
 		this.balance = 0;
 		setBalance(500);
-		this.winRate = 0;
 		this.win = 0;
 		this.lose = 0;
 	}
@@ -21,7 +19,6 @@ public class Player {
 		setName(pName);
 		this.balance = 0;
 		setBalance(500);
-		this.winRate = 0;
 		this.win = 0;
 		this.lose = 0;
 	}
@@ -43,12 +40,6 @@ public class Player {
 
 	public void setBalance(int n) {
 		this.balance = this.balance + n;
-	}
-	public void setWinrate() {
-		this.winRate = this.win/(this.win+this.lose);
-	}
-	public double getWinRate() {
-		return winRate;
 	}
 	
 	public int getWin() {
