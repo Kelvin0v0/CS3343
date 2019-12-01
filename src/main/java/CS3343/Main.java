@@ -10,23 +10,24 @@ import CS3343.game.BlackJack.*;
 
 public class Main {
   /**
- * @param args
- */
-public static void main(String[] args) {
+   * @param args
+   */
+  public static void main(String[] args) {
     Scanner scanner = ScannerSingleton.getScanner();
     boolean whileFlag = true;
     System.out.println("    _    ___ ___  _   _  \n" + "   / \\  |_ _/ _ \\| \\ | | \n"
-          + "  / _ \\  | | | | |  \\| | \n" + " / ___ \\ | | |_| | |\\  | \n" + "/_/   \\_\\___\\___/|_| \\_| ");
-      System.out.println("What's youe name?");
-      String pName = scanner.nextLine();
-      Player player = new Player(pName);
-   //   System.out.print("\033[H\033[2J");
-      System.out.flush();
+        + "  / _ \\  | | | | |  \\| | \n" + " / ___ \\ | | |_| | |\\  | \n" + "/_/   \\_\\___\\___/|_| \\_| ");
+    System.out.println("What's your name?");
+    String pName = scanner.nextLine();
+    Player player = new Player(pName);
+    // System.out.print("\033[H\033[2J");
+    System.out.flush();
     while (whileFlag) {
       // clear last new line
-      
-      System.out.println("Hello " + player.getName()+ '.'+" Welcome to AION Casino");
-      System.out.println("Choose a game! \n" + "1 : Roulette \n" + "2 : Sicbo \n" + "3 : BlackJack \n" + "4 : Slot Machine  \n" + "q : Quit");
+
+      System.out.println("Hello " + player.getName() + '.' + " Welcome to AION Casino");
+      System.out.println("Choose a game! \n" + "1 : Roulette \n" + "2 : Sicbo \n" + "3 : BlackJack \n"
+          + "4 : Slot Machine  \n" + "q : Quit");
       String selection = scanner.nextLine();
       char firstChar = (selection.length() == 0) ? 'q' : selection.charAt(0);
 
@@ -43,19 +44,22 @@ public static void main(String[] args) {
         sicbo.gamePlay();
         break;
       case '3':
-    	BlackJack blackjack = new BlackJack(player);
-    	blackjack.gameInit();
-      break;
+        BlackJack blackjack = new BlackJack(player);
+        blackjack.gameInit();
+        break;
       case '4':
-    	SlotMachine slotMachine = new SlotMachine(player);
-    	slotMachine.gamePlay();
-    	break;
-    	  
+        SlotMachine slotMachine = new SlotMachine(player);
+        slotMachine.gamePlay();
+        break;
+      default:
+        System.out.println("PLease Enter Correct Choice");
+        break;
+
       }
 
-      if (firstChar != 'q') {
-        scanner.nextLine();
-      }
+      // if (firstChar != 'q') {
+      //   scanner.nextLine();
+      // }
     }
 
   }

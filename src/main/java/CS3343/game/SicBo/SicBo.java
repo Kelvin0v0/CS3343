@@ -51,32 +51,38 @@ public class SicBo implements Game {
 
         }
 
+        public void menu() {
+                
+                System.out.println(
+                                "    _____  _        ____   ____\n   / ____ (_)\t   |  _ \\ / __ \\\n   | (___  _  ___  | |_) | |  | |\n   \\___  \\| |/ __| |  _ <| |  | |\n   ____)  | | (__  | |_) | |__| |\n   |_____/|_|\\___| |____/ \\____/ ");
+                System.out.println("-=================================-");
+                System.out.println("| Welcome to Sic Bo (Dice game)!! |");
+                System.out.println("|---------------------------------|");
+                System.out.println("| s: Start \t\t\t  |\n| q: Exit \t\t\t  |");
+                System.out.println("-=================================-");
+
+        }
+
         // Give user input
         @Override
         public void gamePlay() {
                 SicBoInput input = new SicBoInput(player);
                 char menuChoice;
-                while (true){
-                        System.out.println(
-                                        "    _____  _        ____   ____\n   / ____ (_)\t   |  _ \\ / __ \\\n   | (___  _  ___  | |_) | |  | |\n   \\___  \\| |/ __| |  _ <| |  | |\n   ____)  | | (__  | |_) | |__| |\n   |_____/|_|\\___| |____/ \\____/ ");
-                        System.out.println("-=================================-");
-                        System.out.println("| Welcome to Sic Bo (Dice game)!! |");
-                        System.out.println("|---------------------------------|");
-                        System.out.println("| S: Start \t\t\t  |\n| Q: Exit \t\t\t  |");
-                        System.out.println("-=================================-");
+                while (true) {
+                        menu();
                         input.menuOption();
                         menuChoice = input.getChoice().charAt(0);
                         switch (menuChoice) {
-                        case 'S':
+                        case 's':
                                 do {
                                         clearSet();
                                         intro();
                                         input.getInput();
                                         this.choice = input.getChoice();
-                                        if (this.choice.charAt(0) == 'Q') {
+                                        if (this.choice.charAt(0) == 'q') {
                                                 return;
                                         } else {
-                                                if(player.getBalance()==0){
+                                                if (player.getBalance() == 0) {
                                                         System.out.println("You now have no money! BYE");
                                                         return;
                                                 }
@@ -85,21 +91,26 @@ public class SicBo implements Game {
                                                 player.bet(this.money);
                                                 // check result
                                                 this.result();
-                      
+                                                
                                                 input.tryAgain();
                                         }
                                 } while (input.getChoice().charAt(0) == 'Y');
-                        case 'Q':
+                        case 'q':
                                 return;
                         }
                 }
         }
-
+        
+        public void menuChoice() {
+        	
+        }
+        
+        
         // Check the result and return it
 
         public void result() {
                 int[] pattern = this.shakeDice();
-                //int[] pattern = { 2, 2, 4 };
+                // int[] pattern = { 2, 2, 4 };
                 System.out.println("\n===Dices Open===");
                 System.out.println(" " + pattern[0] + " " + pattern[1] + " " + pattern[2] + " ");
                 if (checkChoice(this.choice, pattern)) {
@@ -188,14 +199,14 @@ public class SicBo implements Game {
         public boolean checkPair(String choice, int[] dices) {
                 char left = choice.charAt(0);
                 char right = choice.charAt(2);
-                int leftNum = Character.getNumericValue(left); 
+                int leftNum = Character.getNumericValue(left);
                 int rightNum = Character.getNumericValue(right);
                 boolean leftcheck = false;
                 boolean rightcheck = false;
-                for(int i=0;i< dices.length;i++){
+                for (int i = 0; i < dices.length; i++) {
                         if (leftNum == dices[i]) {
-                               leftcheck = true;
-                        }else if(rightNum == dices[i]){
+                                leftcheck = true;
+                        } else if (rightNum == dices[i]) {
                                 rightcheck = true;
                         }
                 }
@@ -251,7 +262,7 @@ public class SicBo implements Game {
                         return (dices[0] == num || dices[1] == num || dices[2] == num);
                 } else if (choice.contains("One two")) {
                         int num = Character.getNumericValue(choice.charAt(13));
-                        return (dices[0] == dices[1] || dices[1] == dices[2]||dices[0]==dices[2]);
+                        return (dices[0] == dices[1] || dices[1] == dices[2] || dices[0] == dices[2]);
                 } else if (choice.contains("One three")) {
                         int num = Character.getNumericValue(choice.charAt(15));
                         return (dices[0] == num && dices[1] == num && dices[2] == num);
