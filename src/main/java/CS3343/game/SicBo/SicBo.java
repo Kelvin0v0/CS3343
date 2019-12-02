@@ -29,7 +29,7 @@ public class SicBo implements Game {
                 System.out.println(
                                 "| ---------------------------------------------------------------------------------------|");
                 System.out.println("| 1 wins 1   | Big(No. 4-10) , Small(No. 11 to 17), One dice\t\t\t\t |");
-                System.out.println("| 1 dice 2   | One two dice\t\t\t\t\t\t\t\t |");
+                System.out.println("| 1 wins 2   | One two dice\t\t\t\t\t\t\t\t |");
                 System.out.println("| 1 wins 3   | One three dice\t\t\t\t\t\t\t\t |");
                 System.out.println(
                                 "| 1 wins 6   | 1&2, 1&3, 1&4, 1&5, 1&6, 2&3, 2&4, 2&5, 2&6, 3&4, 3&5, 3&6, 4&5, 4&6, 5&6 |");
@@ -91,7 +91,7 @@ public class SicBo implements Game {
                                                 player.bet(this.money);
                                                 // check result
                                                 this.result();
-                                                
+
                                                 input.tryAgain();
                                         }
                                 } while (input.getChoice().charAt(0) == 'Y');
