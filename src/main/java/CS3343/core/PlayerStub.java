@@ -1,6 +1,6 @@
 package CS3343.core;
 
-//this is just until Anthony makes a real One
+//for testing purposes
 
 public class PlayerStub extends Player{
   public int getBalance(){
