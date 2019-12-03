@@ -52,7 +52,7 @@ public class SicBo implements Game {
         }
 
         public void menu() {
-                
+
                 System.out.println(
                                 "    _____  _        ____   ____\n   / ____ (_)\t   |  _ \\ / __ \\\n   | (___  _  ___  | |_) | |  | |\n   \\___  \\| |/ __| |  _ <| |  | |\n   ____)  | | (__  | |_) | |__| |\n   |_____/|_|\\___| |____/ \\____/ ");
                 System.out.println("-=================================-");
@@ -86,7 +86,12 @@ public class SicBo implements Game {
                                                         System.out.println("You now have no money! BYE");
                                                         return;
                                                 }
-                                                input.getCost();
+                                                try {
+                                                        input.getCost();
+                                                } catch (Exception e) {
+                                                        System.out.println("You require input a integer");
+
+                                                }
                                                 this.money = input.getMoney();
                                                 player.bet(this.money);
                                                 // check result
@@ -100,12 +105,11 @@ public class SicBo implements Game {
                         }
                 }
         }
-        
+
         public void menuChoice() {
-        	
+
         }
-        
-        
+
         // Check the result and return it
 
         public void result() {
