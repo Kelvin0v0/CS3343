@@ -38,7 +38,7 @@ public class BlackJack {
 				" \\_  $$_/                                                                            \\_  $$_/ \n" + 
 				"   \\__/                                                                                \\__/   \n" + 
 				"                                                                                             ");
-		System.out.println("Welcom ! "+player.getName());
+		System.out.println("Welcome ! "+player.getName());
 		System.out.println("Your Balance: "+player.getBalance());
 		System.out.print("Want to win some cash??? (Y/N)");
 		
