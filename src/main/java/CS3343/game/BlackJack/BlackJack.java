@@ -92,11 +92,11 @@ public class BlackJack {
 		
 		char isPlay = this.inGame.next().charAt(0);
 		
-		while(isPlay!='Y'&&isPlay!='N') {
+		while(isPlay!='Y'&&isPlay!='N'&&isPlay!='n'&&isPlay!='y') {
 			System.out.println("please re-enter: ");
 			isPlay = this.inGame.next().charAt(0);
 		}
-		if(isPlay=='N') {
+		if(isPlay=='N'||isPlay=='n') {
 			System.out.println("Bye");
 			return; 
 		}
@@ -110,13 +110,28 @@ public class BlackJack {
 	
 	
 	public void inputBet() {
-		do {
+		
+		while(true){
+			this.betValue = 0;
 			System.out.print("Place your Bet: ");
-			this.betValue =  this.betScanner.nextInt();
-			if(!checkBalance(this.betValue,this.player.getBalance())) {
-				System.out.println("You don't have enough money.");
+			try {
+				this.betValue =  this.betScanner.nextInt();
+			}catch(Exception e) {
+				System.out.println("Input must be an integer!");
+				this.betScanner.nextLine();
+				continue;
 			}
-		}while(!checkBalance(this.betValue,this.player.getBalance()));
+			
+			if(checkBalance(this.betValue,this.player.getBalance())) {
+				break;
+			}
+			if(this.betValue == 0) {
+				System.out.println("You cannot input 0.");
+				continue;
+			}
+			System.out.println("You don't have enough money.");
+		}
+		
 		this.betAccumunate += this.betValue; 
 		this.getPlayer().bet(betValue);
 		System.out.println("Total bet Value: "+this.betAccumunate);
@@ -125,7 +140,7 @@ public class BlackJack {
 	}
 	
 	public boolean checkBalance(int bet, int balance) {
-		if(bet>balance) {
+		if(bet>balance||bet==0) {
 			return false;
 		}
 		return true;
@@ -133,7 +148,7 @@ public class BlackJack {
 	
 	public void askAction() {
 		
-		System.out.print("What do you want to do? Bet, Hit, Stop: ");
+		System.out.print("What do you want to do? Bet(B), Hit(H), Stop(S): ");
 		char action = this.actionScanner.next().charAt(0);
 		System.out.println(action);
 		switch(action) {
