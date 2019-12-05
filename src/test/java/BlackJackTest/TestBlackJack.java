@@ -44,6 +44,11 @@ public class TestBlackJack {
 		BlackJack bg = new BlackJack(player);
 		assertFalse(bg.checkBalance(500,400));
 	}
+	@Test
+	public void testCheckBalance4() {
+		BlackJack bg = new BlackJack(player);
+		assertFalse(bg.checkBalance(0,400));
+	}
 	
 	@Test
 	public void testCheckGameCondition1() {
