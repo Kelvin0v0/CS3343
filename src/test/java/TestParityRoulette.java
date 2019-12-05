@@ -7,21 +7,21 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class TestParityRoulette{
     @Test
     public void testOddCorrect() throws NotOnBoardException{
-        RouletteBet bet = new ParityRouletteBet(new Player(), 10, 1);
+        RouletteBet bet = new ParityRouletteBet(new PlayerStub(), 10, 1);
         Wheel.getWheel().setWheel(13);
         boolean res = bet.execBet();
         assertEquals(true,res);
     }
     @Test
     public void testOddWrong() throws NotOnBoardException{
-        RouletteBet bet = new ParityRouletteBet(new Player(), 10, 1);
+        RouletteBet bet = new ParityRouletteBet(new PlayerStub(), 10, 1);
         Wheel.getWheel().setWheel(12);
         boolean res = bet.execBet();
         assertEquals(false,res);
     }
     @Test
     public void testEvenCorrect() throws NotOnBoardException{
-        RouletteBet bet = new ParityRouletteBet(new Player(), 10, 0);
+        RouletteBet bet = new ParityRouletteBet(new PlayerStub(), 10, 0);
         Wheel.getWheel().setWheel(14);
         boolean res = bet.execBet();
         assertEquals(true,res);
@@ -29,7 +29,7 @@ class TestParityRoulette{
 
     @Test
     public void testEvenWrong() throws NotOnBoardException{
-        RouletteBet bet = new ParityRouletteBet(new Player(), 10, 0);
+        RouletteBet bet = new ParityRouletteBet(new PlayerStub(), 10, 0);
         Wheel.getWheel().setWheel(15);
         boolean res = bet.execBet();
         assertEquals(false,res);
@@ -37,7 +37,7 @@ class TestParityRoulette{
 
     @Test
     public void testZeroEven() throws NotOnBoardException{
-        RouletteBet bet = new ParityRouletteBet(new Player(), 10, 0);
+        RouletteBet bet = new ParityRouletteBet(new PlayerStub(), 10, 0);
         Wheel.getWheel().setWheel(0);
         boolean res = bet.execBet();
         assertEquals(false,res);
@@ -45,7 +45,7 @@ class TestParityRoulette{
     
     @Test
     public void testZeroOdd() throws NotOnBoardException{
-        RouletteBet bet = new ParityRouletteBet(new Player(), 10, 1);
+        RouletteBet bet = new ParityRouletteBet(new PlayerStub(), 10, 1);
         Wheel.getWheel().setWheel(0);
         boolean res = bet.execBet();
         assertEquals(false,res);
@@ -54,7 +54,7 @@ class TestParityRoulette{
     @Test
     public void testNotOnBoard(){
         try{
-            RouletteBet bet = new ParityRouletteBet(new Player(), 10, 2);
+            RouletteBet bet = new ParityRouletteBet(new PlayerStub(), 10, 2);
         }catch(NotOnBoardException e){
             return;
         }

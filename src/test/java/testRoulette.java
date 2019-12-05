@@ -16,7 +16,7 @@ public class testRoulette {
 	@Test
 	public void testgetBetSizeSecond() {
 		System.setIn(new ByteArrayInputStream("501 50 1 ".getBytes()));
-		Roulette roulette = new Roulette(new Player());
+		Roulette roulette = new Roulette(new PlayerStub());
 		int res = roulette.getBetSize();
 		assertEquals(res,50);
 	}
@@ -24,7 +24,7 @@ public class testRoulette {
 	@Test
 	public void testgetBetSizeMax() {
 		System.setIn(new ByteArrayInputStream("500 50 1 ".getBytes()));
-		Roulette roulette = new Roulette(new Player());
+		Roulette roulette = new Roulette(new PlayerStub());
 		int res = roulette.getBetSize();
 		assertEquals(res,500);
 	}
@@ -32,7 +32,7 @@ public class testRoulette {
 	@Test
 	public void testgetBetSizeZero() {
 		System.setIn(new ByteArrayInputStream("0 50 1 ".getBytes()));
-		Roulette roulette = new Roulette(new Player());
+		Roulette roulette = new Roulette(new PlayerStub());
 		int res = roulette.getBetSize();
 		assertEquals(res,50);
 	}
@@ -40,7 +40,7 @@ public class testRoulette {
 	@Test
 	public void testBetParity() {
 		System.setIn(new ByteArrayInputStream("50 1 ".getBytes()));
-		Roulette roulett = new Roulette(new Player());
+		Roulette roulett = new Roulette(new PlayerStub());
 		ArrayList <RouletteBet> bets = new ArrayList<RouletteBet>();
 		roulett.betParity(bets);
 		assertTrue(bets.get(0) instanceof ParityRouletteBet);
@@ -50,7 +50,7 @@ public class testRoulette {
 	@Test
 	public void testBetSingle() {
 		System.setIn(new ByteArrayInputStream("50 0 ".getBytes()));
-		Roulette roulette = new Roulette(new Player());
+		Roulette roulette = new Roulette(new PlayerStub());
 		ArrayList <RouletteBet> bets = new ArrayList<RouletteBet>();
 		roulette.betSingle(bets);
 		assertTrue(bets.get(0) instanceof SingleRouletteBet);
@@ -59,7 +59,7 @@ public class testRoulette {
 	@Test
 	public void testExecClear() {
 		System.setIn(new ByteArrayInputStream("50 0 ".getBytes()));
-		Roulette roulette = new Roulette(new Player());
+		Roulette roulette = new Roulette(new PlayerStub());
 		ArrayList <RouletteBet> bets = new ArrayList<RouletteBet>();
 		roulette.betSingle(bets);
 		roulette.execute(bets);
