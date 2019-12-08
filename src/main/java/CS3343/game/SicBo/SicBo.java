@@ -103,6 +103,7 @@ public class SicBo implements Game {
                         case 'q':
                                 return;
                         }
+                        return ;
                 }
         }
 
